@@ -76,7 +76,7 @@ def all_supplies_in_holidays(holiday_hash)
     holiday.collect do |name, things|
       #Convert to string, replace underscore if present, split to seprate each word
       #and capitilize each word via proc. Rejoin with space
-      puts "  #{name.to_s.gsub(/_/," ").split.collect{|w| w.capitilize}.join(" ")}: #{things.join(", ").chomp}"
+      puts "  #{name.to_s.gsub(/_/," ").split.collect(&:capitalize!).join(" ")}: #{things.join(", ").chomp}"
       #Converts array to string with ", " in between. Chomp removes
     end
   end
